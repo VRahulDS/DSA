@@ -1,15 +1,18 @@
-def bin_search_arr(arr,  k, l, h):
-	if l>h:
-		return -1
-	mid = (l+h)//2
+def bin_search_arr(arr,  k):
+	l = 0
+	h = len(arr)-1
 	
-	if arr[mid]==k:
-		return mid
-	elif arr[mid] > k:
-		return bin_search_arr(arr, k, 0, mid-1)
-	else:
-		return bin_search_arr(arr, k, mid+1, h)
+	while l<=h:
+		mid = (l+h)//2
 		
+		if arr[mid] == k:
+			return mid
+		elif arr[mid] > k:
+			h = mid-1
+		else:
+			l = mid +1
+			
+	return -1
 		
-print(bin_search_arr([1,2,3,4,5,6], 2, 0, 5))
-print(bin_search_arr([1,2,3,4,6], 1, 0, 4))
+print(bin_search_arr([1,2,3,4,5,6], 1))
+print(bin_search_arr([1,2,3,4,6], 1))
